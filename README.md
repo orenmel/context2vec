@@ -93,7 +93,7 @@ scorer2 RESULTS_FILE EnglishLS.test.key EnglishLS.sensemap
 
 ### Lexical Substitution
 
-The code for the lexical substitution evaluation is included in a separate repository - see [[here]](http://u.cs.biu.ac.il/~nlp/resources/downloads/context2vec/).
+The code for the lexical substitution evaluation is included in a separate repository [[here]](https://github.com/orenmel/lexsub).
 
 ## Known issues
 
