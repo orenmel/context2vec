@@ -7,7 +7,7 @@ With this code you can:
 Please cite the following paper if using the code:
 
 **context2vec: Learning Generic Context Embedding with Bidirectional LSTM**  
-Oren Melamud, Jacob Goldberger, Ido Dagan. CoNLL, 2016 [[pdf]](http://u.cs.biu.ac.il/~melamuo/publications/context2vec_camera_ready.pdf).
+Oren Melamud, Jacob Goldberger, Ido Dagan. CoNLL, 2016 [[pdf]](http://u.cs.biu.ac.il/~melamuo/publications/context2vec_conll16.pdf).
 
 ## Requirements
 
