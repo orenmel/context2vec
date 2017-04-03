@@ -1,7 +1,7 @@
 # The context2vec toolkit
 
 With this code you can:
-* Use our pre-trained models to represent sentential contexts of target words and target words themselves into a low-dimensional vector representations.
+* Use our pre-trained models to represent sentential contexts of target words and target words themselves with low-dimensional vector representations.
 * Learn your own context2vec models with your choice of a learning corpus and hyperparameters.
 
 Please cite the following paper if using the code:
