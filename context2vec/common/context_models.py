@@ -1,5 +1,4 @@
 import math
-from itertools import izip
 
 import numpy as np
 import chainer
@@ -35,15 +34,15 @@ class CbowContext(object):
         bow = self.extract_window(sent_words, position)
         bow_inds = [self.word2index[word] for word in bow if word in self.word2index and word not in self.stopwords ]
         if len(bow_inds) == 0:
-            print "NOTICE: Empty bow context for: " + str(sent_words)
-            print "Trying with stopwords"
+            print("NOTICE: Empty bow context for: " + str(sent_words))
+            print("Trying with stopwords")
             bow_inds = [self.word2index[word] for word in bow if word in self.word2index ]           
         return self.context_rep(bow_inds)
     
     def count2idf(self, word_counts, word2index):
         sum_counts = sum(word_counts.values())
         idf = np.zeros((len(word2index),1), dtype=float)
-        for word, count in word_counts.iteritems():
+        for word, count in word_counts.items():
             if word in word2index:
                 idf[word2index[word],0] = math.log(float(sum_counts)/count)
         return idf
@@ -176,7 +175,7 @@ class BiLstmContext(chainer.Chain):
         
         # concat left-to-right with right-to-left
         sent_bi_h = []
-        for l2r_h, r2l_h in izip(l2r_sent_h, r2l_sent_h):
+        for l2r_h, r2l_h in zip(l2r_sent_h, r2l_sent_h):
             if not self.deep: # projecting hidden state to half out-units dimensionality before concatenating
                 if self.drop_ratio > 0.0:
                     l2r_h = self.lp_l2r(F.dropout(l2r_h, ratio=self.drop_ratio, train=self.train))
@@ -217,7 +216,7 @@ class BiLstmContext(chainer.Chain):
             sent_x.append(x)
             
         accum_loss = None
-        for y,x in izip(sent_y, sent_x):
+        for y,x in zip(sent_y, sent_x):
             loss = self.loss_func(y, x)
             accum_loss = accum_loss + loss if accum_loss is not None else loss 
         

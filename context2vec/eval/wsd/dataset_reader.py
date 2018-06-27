@@ -155,12 +155,12 @@ if __name__ == '__main__':
     reader = DatasetReader(model)
     dataset, key2ind = reader.read_dataset(sys.argv[1], sys.argv[1]+'.key', train=True)
     
-    print key2ind
+    print(key2ind)
     for oneset in dataset:
-        print
-        print oneset.context_m
-        print oneset.contexts_str
-        print oneset.contexts_v
-        print oneset.instance_ids
-        print oneset.sense_ids
+        print()
+        print(oneset.context_m)
+        print(oneset.contexts_str)
+        print(oneset.contexts_v)
+        print(oneset.instance_ids)
+        print(oneset.sense_ids)
         

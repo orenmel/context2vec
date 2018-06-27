@@ -15,9 +15,9 @@ class ModelReader(object):
 
     def __init__(self, config_file):
         self.gpu = -1 # todo support gpu
-        print 'Reading config file: ' + config_file
+        print('Reading config file: ' + config_file)
         params = self.read_config_file(config_file)
-        print 'Config: ', params
+        print('Config: ', params)
         self.w, self.word2index, self.index2word, self.model = self.read_model(params)
         
 

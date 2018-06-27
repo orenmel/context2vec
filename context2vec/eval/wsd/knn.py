@@ -27,7 +27,7 @@ class Knn(object):
             sense_ids = key_data.sense_ids[ind]
             weight = 1./len(sense_ids)
             if debug:
-                print 'RET: ', similarity[ind], text.strip(), sense_ids
+                print('RET: ', similarity[ind], text.strip(), sense_ids)
             for sid in sense_ids:
                 if sid not in result:
                     result[sid] = weight

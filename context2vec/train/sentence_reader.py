@@ -42,7 +42,7 @@ class SentenceReaderDir(object):
         self.path = path
         self.batchsize = batchsize
         self.trimmed_word2count, self.word2index, self.index2word = self.read_and_trim_vocab(trimfreq)
-        self.total_words = sum(self.trimmed_word2count.itervalues())
+        self.total_words = sum(self.trimmed_word2count.values())
         self.fds = []
         
     def open(self):
@@ -74,7 +74,7 @@ class SentenceReaderDir(object):
         index2word = {Toks.UNK:'<UNK>', Toks.BOS:'<BOS>', Toks.EOS:'<EOS>'}
         word2index = {'<UNK>':Toks.UNK, '<BOS>':Toks.BOS, '<EOS>':Toks.EOS}
         unknown_counts = 0
-        for word, count in word2count.iteritems():
+        for word, count in word2count.items():
             if count >= trimfreq and word.lower() != '<unk>' and word.lower() != '<rw>':    
                 ind = len(word2index)
                 word2index[word] = ind
@@ -101,17 +101,17 @@ if __name__ == '__main__':
     reader = SentenceReaderDir(sys.argv[1],int(sys.argv[2]),int(sys.argv[3]))
     
     for i in range(2):
-        print 'epoc', i
+        print('epoc', i)
         reader.open()
         i = 0
         j = 0
         for batch in reader.next_batch():
             if i < 3:
-                print batch
-                print
+                print(batch)
+                print()
             i += 1
             j += len(batch)
-        print 'batches', i
-        print 'sents', j
+        print('batches', i)
+        print('sents', j)
         reader.close()
                      
