@@ -72,8 +72,8 @@ class BiLstmContext(chainer.Chain):
       
     def __init__(self, deep, gpu, word2index, in_units, hidden_units, out_units, loss_func, train, drop_ratio=0.0):
         n_vocab = len(word2index)        
-        l2r_embedding=F.EmbedID(n_vocab, in_units)
-        r2l_embedding=F.EmbedID(n_vocab, in_units)
+        l2r_embedding=L.EmbedID(n_vocab, in_units)
+        r2l_embedding=L.EmbedID(n_vocab, in_units)
         
         if deep:
             super(BiLstmContext, self).__init__(
