@@ -24,7 +24,7 @@ def parse_input(line, word2index):
     
     line = line[line.find(' ')+1:].strip()
     if debug:
-        print line
+        print(line)
     segments = exp.match(line)
     if segments is not None:
         seg_left = segments.group(1)
@@ -35,7 +35,7 @@ def parse_input(line, word2index):
         words_right = word_tokenize(seg_right)
         words = words_left + [target_word] + words_right
         if debug:
-            print words
+            print(words)
         target_pos = len(words_left)
         sent = []
         for word in words:
@@ -44,7 +44,7 @@ def parse_input(line, word2index):
     else:
         raise Exception("Failed to parse line into segments")
     if debug:
-        print sent
+        print(sent)
     return sent, target_pos, target_word
 
 
@@ -71,9 +71,9 @@ def answer_next_question(fd, model, w, word2index):
         sim = target_v.dot(context_v)
         
         if debug:
-            print 'target_word', target_word
-            print 'target_pos', target_pos
-            print 'sim', sim        
+            print('target_word', target_word)
+            print('target_pos', target_pos)
+            print('sim', sim)
         
         if best_sim is None or sim > best_sim:
             best_sim = sim
@@ -87,8 +87,8 @@ def read_next_answer(fd, word2index):
         return None
     _, _, target_word = parse_input(line, word2index)
     if debug:
-        print '\ngold target word', target_word
-        print '***************************'
+        print('\ngold target word', target_word)
+        print('***************************')
     return target_word
 
 
@@ -119,7 +119,7 @@ if __name__ == '__main__':
             correct += 1
             
     accuracy = float(correct) / total_questions
-    print "Accuracy: {0}. Correct: {1}. Total: {2}".format(accuracy, correct, total_questions)
+    print("Accuracy: {0}. Correct: {1}. Total: {2}".format(accuracy, correct, total_questions))
     results_fd.write("Accuracy: {0}. Correct: {1}. Total: {2}.\n".format(accuracy, correct, total_questions))
         
     questions_fd.close()

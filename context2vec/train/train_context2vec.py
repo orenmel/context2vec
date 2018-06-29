@@ -155,7 +155,7 @@ for epoch in range(args.epoch):
             last_accum_loss = float(accum_loss)
             last_word_count = word_count
 
-    print 'accum words per epoch', word_count, 'accum_loss', accum_loss, 'accum_loss/word', accum_mean_loss
+    print('accum words per epoch', word_count, 'accum_loss', accum_loss, 'accum_loss/word', accum_mean_loss)
     reader.close()
     
 if args.wordsfile != None:        

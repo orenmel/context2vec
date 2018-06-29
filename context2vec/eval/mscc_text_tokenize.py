@@ -33,7 +33,7 @@ for i, line in enumerate(input_file):
 if len(paragraph_lines) > 0:
     write_paragraph_lines(paragraph_lines)
     
-print 'Read {} lines'.format(i)
+print('Read {} lines'.format(i))
                           
 input_file.close()
 output_file.close()

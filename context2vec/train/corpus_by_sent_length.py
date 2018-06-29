@@ -18,7 +18,7 @@ def get_file(sub_files, corpus_dir, num_filename):
 if __name__ == '__main__':
     
     if len(sys.argv) < 2:
-        print "usage: %s <corpus-file> [max-sent-len]"  % (sys.argv[0])
+        print("usage: %s <corpus-file> [max-sent-len]"  % (sys.argv[0]))
         sys.exit(1)
         
     corpus_file = open(sys.argv[1], 'r')
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         max_sent_len = int(sys.argv[2])
     else:
         max_sent_len = 128    
-    print 'Using maximum sentence length: ' + str(max_sent_len)
+    print('Using maximum sentence length: ' + str(max_sent_len))
     
     corpus_dir = sys.argv[1]+'.DIR'
     os.makedirs(corpus_dir)
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             for word in words:
                 word_counts[word] += 1
                
-    for sub_file in sub_files.itervalues():
+    for sub_file in sub_files.values():
         sub_file.close()
         
     for num_filename, count in sent_counts.most_common():
@@ -58,12 +58,12 @@ if __name__ == '__main__':
     for word, count in word_counts.most_common():
         word_counts_file.write(word+'\t'+str(count)+'\n')
     
-    totals_file.write('total sents read: {}\n'.format(sum(sent_counts.itervalues())))
-    totals_file.write('total words read: {}\n'.format(sum(word_counts.itervalues())))
+    totals_file.write('total sents read: {}\n'.format(sum(sent_counts.values())))
+    totals_file.write('total words read: {}\n'.format(sum(word_counts.values())))
     
     corpus_file.close()
     sent_counts_file.close()
     word_counts_file.close()
     totals_file.close()
     
-    print 'Done'
+    print('Done')
