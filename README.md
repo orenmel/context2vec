@@ -15,6 +15,8 @@ Oren Melamud, Jacob Goldberger, Ido Dagan. CoNLL, 2016 [[pdf]](http://u.cs.biu.a
 * Chainer 4.2 ([chainer](http://chainer.org/))
 * NLTK 3.0 ([NLTK](http://www.nltk.org/))  - optional (only required for the AWE baseline and MSCC evaluation)
 
+Note: Release 1.0 includes the original code that was used in the context2vec paper and has different dependencies (Python 2.7 and Chainer 1.7).
+
 ## Installation
 
 * Download the code
