@@ -17,7 +17,7 @@ class KeyDataset(object):
     
 
 class DatasetReader(object):
-    exp = re.compile('(.*)(<head>[a-zA-Z]+</head>)(.*)')
+    exp = re.compile('(.*)(<head>[^<]+</head>)(.*)')
 
     def __init__(self, context_model):
         self.context_model = context_model
