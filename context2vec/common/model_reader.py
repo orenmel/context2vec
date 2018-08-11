@@ -4,8 +4,8 @@ import chainer.serializers as S
 import chainer.links as L
 from nltk.corpus import stopwords
 
-from context_models import CbowContext, BiLstmContext
-from defs import IN_TO_OUT_UNITS_RATIO, NEGATIVE_SAMPLING_NUM
+from .context_models import CbowContext, BiLstmContext
+from .defs import IN_TO_OUT_UNITS_RATIO, NEGATIVE_SAMPLING_NUM
 
 
 class ModelReader(object):
