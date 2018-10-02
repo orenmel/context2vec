@@ -92,8 +92,8 @@ class BiLstmContext(chainer.Chain):
                 loss_func=loss_func,
                 l2r_1 = L.LSTM(in_units, hidden_units),
                 r2l_1 = L.LSTM(in_units, hidden_units),
-                lp_l2r = L.Linear(hidden_units, out_units/2),
-                lp_r2l = L.Linear(hidden_units, out_units/2)
+                lp_l2r = L.Linear(hidden_units, int(out_units/2)),
+                lp_r2l = L.Linear(hidden_units, int(out_units/2))
                 
             )
         if gpu >=0:
