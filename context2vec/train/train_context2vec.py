@@ -12,6 +12,7 @@ import chainer.links as L
 import chainer.optimizers as O
 import chainer.serializers as S
 import chainer.computational_graph as C
+from chainer.optimizer_hooks import GradientClipping
 
 from sentence_reader import SentenceReaderDir
 from context2vec.common.context_models import BiLstmContext
@@ -69,6 +70,8 @@ def parse_arguments():
                         help='use deep NN architecture')
     parser.add_argument('--alpha', '-a', default=0.001, type=float,
                         help='alpha param for Adam, controls the learning rate')
+    parser.add_argument('--grad-clip', '-gc', default=None, type=float,
+                        help='if specified, clip l2 of the gradient to this value')
     
     args = parser.parse_args()
     
@@ -89,6 +92,7 @@ def parse_arguments():
     print('Trimfreq: {}'.format(args.trimfreq))
     print('NS Power: {}'.format(args.ns_power))
     print('Alpha: {}'.format(args.alpha))
+    print('Grad clip: {}'.format(args.grad_clip))
     print('')
        
     return args 
@@ -120,6 +124,9 @@ else:
 
 optimizer = O.Adam(alpha=args.alpha)
 optimizer.setup(model)
+
+if args.grad_clip:
+    optimizer.add_hook(GradientClipping(args.grad_clip))
 
 STATUS_INTERVAL = 1000000
 
