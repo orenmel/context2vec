@@ -53,6 +53,15 @@ NOTE:
 * The current code lowercases all corpus words
 * Use of a gpu and mini-batching is highly recommended to achieve good training speeds
 
+### Avoiding exploding gradients
+
+Some users have noted that this configuration can cause exploding gradients
+[(see issue #6)](https://github.com/orenmel/context2vec/issues/6). One option
+is to turn down the learning rate, by reducing the Adam optimizer's alpha from
+0.001 to something lower, e.g. by specifying `-a 0.0005`. As an extra safety
+measure, you can enable gradient clipping which could be set to 5 by using the
+very scientific method of using the value everyone else seems to be using `-gc
+5`.
 
 ## Evaluation
 
